@@ -1,0 +1,72 @@
+.experience {
+  padding: 0 0 clamp(70px, 10vw, 130px);
+}
+
+.experience__card {
+  position: relative;
+  border: 2px solid var(--blue);
+  padding: clamp(28px, 4vw, 44px) clamp(24px, 5vw, 56px) clamp(36px, 5vw, 52px);
+}
+
+.experience__label {
+  font-size: 0.82rem;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 28px;
+}
+
+.experience__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.experience__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.experience__badge {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.experience__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 2px;
+}
+
+.experience__role {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.experience__org,
+.experience__period {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 560px) {
+  .experience__item {
+    gap: 14px;
+  }
+}

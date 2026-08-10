@@ -1,0 +1,141 @@
+.nav {
+  /* position: sticky;
+  top: 0; */
+  z-index: 50;
+  background: rgba(246, 245, 241, 0.86);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.25s ease;
+}
+
+.nav--scrolled {
+  border-bottom-color: var(--line);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.nav__mark {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 0.94rem;
+  color: var(--ink-soft);
+  margin-left: auto;
+  margin-right: 30px;
+}
+
+.nav__links a {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav__links a:hover {
+  color: var(--ink);
+}
+
+.nav__links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 1px;
+  background: var(--ink);
+  transition: right 0.2s ease;
+}
+
+.nav__links a:hover::after {
+  right: 0;
+}
+
+.nav__links a.is-active {
+  color: var(--ink);
+}
+
+.nav__links a.is-active::after {
+  right: 0;
+}
+
+.nav__cta {
+  background: var(--amber);
+  color: var(--amber-ink);
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 10px 20px;
+  border-radius: 3px;
+  white-space: nowrap;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.nav__cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(242, 165, 58, 0.35);
+}
+
+.nav__burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav__burger span {
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  display: block;
+}
+
+.nav__sheet {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  .nav__links,
+  .nav__cta {
+    display: none;
+  }
+  .nav__burger {
+    display: flex;
+  }
+  .nav__sheet {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 4px clamp(20px, 5vw, 56px) 20px;
+    border-top: 1px solid var(--line);
+    font-size: 1rem;
+  }
+  .nav__sheet a {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink-soft);
+  }
+  .nav__sheet-cta {
+    margin-top: 12px;
+    background: var(--amber);
+    color: var(--amber-ink) !important;
+    text-align: center;
+    padding: 12px !important;
+    border-radius: 3px;
+    font-weight: 600;
+    border-bottom: none !important;
+  }
+}

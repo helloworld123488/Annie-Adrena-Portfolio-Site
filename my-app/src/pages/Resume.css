@@ -1,0 +1,145 @@
+.resume-container {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 1in;
+  line-height: 1.5;
+  font-size: 11pt;
+  background: #ffffff;
+  position: relative;
+}
+
+.download-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #003c78;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.download-btn:hover {
+  background-color: #0050a0;
+}
+
+.resume-header {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.resume-name {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.section-title {
+  color: #003c78;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 1.5rem 0 0.5rem 0;
+  padding-bottom: 0.15rem;
+}
+
+.hfill-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+
+.hfill-left {
+  font-weight: 700;
+}
+
+.entry-dates {
+  font-style: italic;
+  margin-bottom: 0.15rem;
+}
+
+.bullet-list {
+  margin: 0.35rem 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bullet-list li {
+  display: flex;
+  margin-bottom: 0.25rem;
+}
+
+.bullet-marker {
+  margin-right: 0.5rem;
+}
+
+.entry-spacer {
+  height: 2.4em;
+}
+
+.edu-title {
+  font-weight: 700;
+}
+
+.edu-title-spaced {
+  font-weight: 700;
+  margin-top: 0.75rem;
+}
+
+/* ---------- Mobile responsiveness ---------- */
+@media (max-width: 600px) {
+  .resume-container {
+    padding: 1.25rem 1rem 2.5rem;
+    font-size: 9.5pt;
+    line-height: 1.45;
+  }
+
+  .download-btn {
+    position: static;
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .resume-name {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .resume-header > div {
+    font-size: 0.85rem;
+  }
+
+  .section-title {
+    font-size: 1.05rem;
+    margin: 1.1rem 0 0.4rem 0;
+  }
+
+  .hfill-row {
+    font-size: 0.9rem;
+    gap: 0.1rem 0.5rem;
+  }
+
+  .entry-dates {
+    font-size: 0.85rem;
+  }
+
+  .bullet-list li {
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .resume-container {
+    padding: 1rem 0.75rem 2rem;
+    font-size: 9pt;
+  }
+
+  .resume-name {
+    font-size: 1.3rem;
+  }
+}

@@ -1,0 +1,215 @@
+/* ------------------------------------------------------------------ */
+/*  Base / mobile-first styles (default: phones, < 600px)              */
+/* ------------------------------------------------------------------ */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Navbar */
+.navbar {
+  background: #333;
+  padding: clamp(10px, 3vw, 16px) clamp(14px, 4vw, 32px);
+}
+.navbar__title {
+  color: white;
+  font-weight: bold;
+  font-size: clamp(1rem, 3vw, 1.15rem);
+}
+
+/* Tabs */
+.tab-buttons {
+  margin: 0;
+  padding: clamp(12px, 3vw, 18px) clamp(14px, 4vw, 32px);
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  background: #f5f5f5;
+}
+.tab {
+  padding: 10px 18px;
+  background: #ccc;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: clamp(0.85rem, 2.2vw, 0.95rem);
+  white-space: nowrap;
+  transition: background 0.15s ease;
+  flex: 0 0 auto;
+}
+.tab:hover {
+  background: #b3b3b3;
+}
+.tab.active {
+  background: #555;
+}
+
+/* Content — full-bleed, no max-width, no side gutters, so the card
+   underneath can stretch edge-to-edge on every device. */
+.resources-content {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.resources-page__title {
+  font-family: var(--font-display, inherit);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 3.5vw, 2rem);
+  margin: 0;
+  padding: clamp(14px, 3vw, 22px) clamp(14px, 4vw, 32px) 0;
+  line-height: 1.15;
+}
+
+/* Card grid: always a single, full-width column — one card per view
+   that fills the available screen. */
+.resources-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  width: 100%;
+}
+
+.resource-card {
+  width: 100%;
+  background: var(--white, #fff);
+  border: none;
+  border-radius: 0;
+  padding: clamp(16px, 3vw, 24px) clamp(14px, 4vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.resource-card__tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--blue, #2563eb);
+  font-weight: 600;
+}
+
+.resource-card__title {
+  font-family: var(--font-display, inherit);
+  font-weight: 600;
+  font-size: clamp(1.05rem, 3vw, 1.4rem);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.resource-card__meta {
+  font-size: 0.8rem;
+  color: var(--ink-faint, #888);
+  word-break: break-word;
+}
+
+.resource-card__link {
+  color: var(--blue, #2563eb);
+  text-decoration: underline;
+}
+
+/* ------------------------------------------------------------------ */
+/*  PDF viewer — fills the remaining screen height on every device.    */
+/*  Uses dvh (dynamic viewport height) with a vh fallback for browsers */
+/*  that don't support it yet, so mobile address-bar resizing doesn't  */
+/*  leave gaps or cut off content.                                     */
+/* ------------------------------------------------------------------ */
+.pdf-frame {
+  width: 100%;
+  height: 65vh;
+  height: 65dvh;
+  border: 1px solid var(--line, #e2e2e2);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f4f4f4;
+}
+.pdf-frame__embed {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Tablet (>= 600px)                                                   */
+/* ------------------------------------------------------------------ */
+@media (min-width: 600px) {
+  .tab-buttons {
+    gap: 14px;
+  }
+
+  .tab {
+    padding: 11px 24px;
+  }
+
+  .pdf-frame {
+    height: 75vh;
+    height: 75dvh;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Small laptop / large tablet (>= 900px)                              */
+/* ------------------------------------------------------------------ */
+@media (min-width: 900px) {
+  .pdf-frame {
+    height: 82vh;
+    height: 82dvh;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Laptop / desktop (>= 1024px)                                       */
+/* ------------------------------------------------------------------ */
+@media (min-width: 1024px) {
+  .navbar {
+    padding: 16px 40px;
+  }
+
+  .tab-buttons {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .resources-page__title {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .resource-card {
+    padding: 28px 40px;
+  }
+
+  .pdf-frame {
+    height: 88vh;
+    height: 88dvh;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Small phones (< 400px): trim spacing, keep the viewer dominant     */
+/* ------------------------------------------------------------------ */
+@media (max-width: 400px) {
+  .tab {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+  .resource-card {
+    padding: 12px 10px;
+  }
+  .pdf-frame {
+    height: 60vh;
+    height: 60dvh;
+  }
+}

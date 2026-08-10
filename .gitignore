@@ -1,0 +1,17 @@
+# Frontend
+my-app/node_modules/
+my-app/dist/
+my-app/.vite/
+my-app/.vite-temp/
+
+# Backend
+backend/node_modules/
+backend/dist/
+backend/build/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

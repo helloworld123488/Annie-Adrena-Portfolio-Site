@@ -1,0 +1,16 @@
+.statement {
+  background: var(--bg-panel);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(48px, 8vw, 84px) 0;
+}
+
+.statement__text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3.4vw, 2.5rem);
+  line-height: 1.28;
+  max-width: 780px;
+  margin: 0;
+  color: var(--ink);
+}

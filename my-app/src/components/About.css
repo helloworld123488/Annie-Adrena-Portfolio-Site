@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+.about {
+  padding: clamp(70px, 10vw, 130px) 0;
+}
+
+.about__inner {
+  display: grid;
+  grid-template-columns: minmax(200px, 320px) 1fr;
+  gap: clamp(40px, 7vw, 96px);
+  align-items: center;
+}
+
+.about__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+}
+
+.about__block {
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  transform: translate(-14px, 14px);
+  border-radius: 2%;
+}
+
+.about__photo {
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--transparent);
+  overflow: hidden;
+  border-radius:2%;
+}
+
+.about__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about__title {
+  font-family: Dancing Script;
+  font-weight: 600;
+  font-size: clamp(2.2rem, 4.4vw, 3.2rem);
+  margin: 0 0 6px;
+}
+
+.about__lede {
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin: 0 0 22px;
+}
+
+.about__copy p{
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 60ch;
+  margin: 0 0 16px;
+  font-family: Dancing Script;
+  font-size:1.3rem;
+  font-weight: 1000;
+}
+
+@media (max-width: 760px) {
+  .about__inner {
+    grid-template-columns: 1fr;
+  }
+  .about__frame {
+    max-width: 260px;
+    margin: 0 auto 20px;
+  }
+}

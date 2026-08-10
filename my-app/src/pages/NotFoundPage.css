@@ -1,0 +1,28 @@
+.notfound {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+}
+
+.notfound__inner {
+  padding: clamp(60px, 10vw, 100px) 0;
+}
+
+.notfound__eyebrow {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  margin: 0;
+  color: var(--line);
+}
+
+.notfound__inner h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin: 0 0 16px;
+}
+
+.notfound__inner a {
+  color: var(--blue);
+  font-weight: 600;
+}
