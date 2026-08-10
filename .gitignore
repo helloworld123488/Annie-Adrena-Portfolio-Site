@@ -3,11 +3,13 @@ my-app/node_modules/
 my-app/dist/
 my-app/.vite/
 my-app/.vite-temp/
+my-app/.env   # ignore frontend env file
 
 # Backend
 backend/node_modules/
 backend/dist/
 backend/build/
+backend/.env  # ignore backend env file
 
 # Logs
 *.log
