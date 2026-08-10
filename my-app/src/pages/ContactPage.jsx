@@ -2,12 +2,28 @@ import { useState } from "react";
 import SocialIcons from "../components/SocialIcons";
 import "./ContactPage.css";
 
-const DEFAULT_API_URL = import.meta.env.DEV
-  ? "http://localhost:5000"
-  : "https://annie-adrena-portfolio-site-backend-five.vercel.app";
+function getApiUrl() {
+  const isLocalhost =
+    typeof window !== "undefined" &&
+    (window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1");
 
-const rawApiUrl = import.meta.env.VITE_API_URL || DEFAULT_API_URL;
-const API_URL = rawApiUrl.replace(/\/+$/, "");
+  const envUrl = import.meta.env.VITE_API_URL;
+
+  // When deployed on Vercel or any live domain, never attempt to call localhost
+  if (!isLocalhost) {
+    if (envUrl && !envUrl.includes("localhost") && !envUrl.includes("127.0.0.1")) {
+      return envUrl.replace(/\/+$/, "");
+    }
+    return "https://annie-adrena-portfolio-site-backend.vercel.app";
+  }
+
+  // Local development fallback
+  return (envUrl || "http://localhost:5000").replace(/\/+$/, "");
+}
+
+const API_URL = getApiUrl();
+
 
 
 export default function ContactPage() {
