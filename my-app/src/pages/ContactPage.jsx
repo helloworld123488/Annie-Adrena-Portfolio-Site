@@ -2,6 +2,14 @@ import { useState } from "react";
 import SocialIcons from "../components/SocialIcons";
 import "./ContactPage.css";
 
+const DEFAULT_API_URL = import.meta.env.DEV
+  ? "http://localhost:5000"
+  : "https://annie-adrena-portfolio-site-backend-five.vercel.app";
+
+const rawApiUrl = import.meta.env.VITE_API_URL || DEFAULT_API_URL;
+const API_URL = rawApiUrl.replace(/\/+$/, "");
+
+
 export default function ContactPage() {
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
@@ -18,15 +26,21 @@ export default function ContactPage() {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:5000/contact", {
+      const response = await fetch(`${API_URL}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
 
       if (!response.ok) {
-        const message = await response.text();
-        throw new Error(message || "Unable to send message");
+        let message = "Unable to send message";
+        try {
+          const data = await response.json();
+          message = data.error || message;
+        } catch {
+          // response wasn't JSON, ignore
+        }
+        throw new Error(message);
       }
 
       setStatus("sent");
@@ -44,19 +58,19 @@ export default function ContactPage() {
         <div className="contact-page__intro">
           <p className="contact-page__eyebrow">Contact</p>
           <h1 className="contact-page__title">
-            <em>
-              Let&apos;s build a better workplace, together.
-            </em>
+            <em>Let&apos;s build a better workplace, together.</em>
           </h1>
           <p className="contact-page__sub">
-            Open to HR Operations , HR Generalist and HR Business Partner roles. Send a note
+            Open to HR Operations, HR Generalist and HR Business Partner roles. Send a note
             and I&apos;ll get back to you within a couple of days.
           </p>
 
           <div className="contact-page__meta">
             <div>
               <p className="contact-page__meta-label">Email</p>
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=adrenahr.solutions@gmail.com">adrenahr.solutions@gmail.com</a>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=adrenahr.solutions@gmail.com">
+                adrenahr.solutions@gmail.com
+              </a>
             </div>
             <div>
               <p className="contact-page__meta-label">Location</p>
